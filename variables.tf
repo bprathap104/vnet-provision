@@ -8,40 +8,17 @@ variable "vnet_address_spaces" {
   type        = list(string)
 }
 
-variable "web_subnet_names" {
-  description = "List of names for the web subnets"
-  type        = list(string)
-}
-
-variable "app_subnet_names" {
-  description = "List of names for the app subnets"
-  type        = list(string)
-}
-
-variable "data_subnet_names" {
-  description = "List of names for the data subnets"
-  type        = list(string)
-}
-
-variable "web_cidrs" {
-  description = "List of CIDR blocks for the web subnets"
-  type        = list(string)
-}
-
-variable "app_cidrs" {
-  description = "List of CIDR blocks for the app subnets"
-  type        = list(string)
-}
-
-variable "data_cidrs" {
-  description = "List of CIDR blocks for the data subnets"
-  type        = list(string)
+variable "subnet_details" {
+  type = list(object({
+    cidr = string
+    name = string
+  }))
 }
 
 variable "location" {
   description = "The Azure region where resources will be created"
   type        = string
-  default     = "East US"
+  default     = "Central US"
 }
 
 variable "resource_group_name" {
